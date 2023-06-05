@@ -1,31 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
    <head>
-      <meta charset="UTF-8" />
-
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>User Authentication</title>
+      <meta charset="utf-8" />
+      <title>MONGOOSE Example</title>
    </head>
    <body>
-      <h3>userAuth</h3>
-      <hr />
-      <form method="post" name="userForm" target="targetURL">
-         <p>USERID = <input type="text" size="15" name="userid" placeholder="8글자만" /></p>
-         <p>PASSWORD = <input type="password" size="15" name="passwd" /></p>
-         <input type="button" value="get select" onclick="document.targetURL.location.href='./select'" />
-         <input
-            type="button"
-            value="get selectQuery"
-            onclick="document.targetURL.location.href='./selectQuery?userid='+document.userForm.userid.value"
-         />
+      <h1>Mongoose Example</h1>
+      <form method="post" action="/insert" name="mongooseform" target="targetURL">
+         <input type="button" value="Users Collection" onclick="document.targetURL.location.href='/list'" />
+         <p>
+            userid : <input type="text" size="10" name="userid" />
+            <input
+               type="button"
+               value="Get"
+               onclick="document.targetURL.location.href='/get?input='+document.mongooseform.userid.value"
+            />
+         </p>
+         <p>name : <input type="text" size="10" name="name" /></p>
+         <p>city : <input type="text" size="10" name="city" /></p>
+         <p>age : <input type="number" size="10" name="age" /></p>
+         <p>
+            gender :
+            <input type="radio" name="gender" value="male" checked />male
+            <input type="radio" name="gender" value="female" />female
+         </p>
 
-         <input type="submit" value="INSERT USER" formaction="/insert" />
-
-         <input type="submit" value="UPDATE USER" formaction="/update" />
-
-         <input type="submit" value="DELETE USER" formaction="/delete" />
+         <input type="submit" value="insert" onclick="this.form.action='/insert'" />
+         <input type="submit" value="update" onclick="this.form.action='/update'" />
+         <input type="submit" value="delete" onclick="this.form.action='/delete'" />
       </form>
-      <hr />
-      <iframe src="/hello" name="targetURL" frameborder="0" width="100%" height="600px" scrolling="no"></iframe>
+      ---------------------------------------------------------<br />
+      <iframe name="targetURL" class="iframe-preview center" width="90%" height="500" style="border: none" src="/Hello">
+      </iframe>
    </body>
 </html>
